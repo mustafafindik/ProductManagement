@@ -15,7 +15,7 @@ namespace ProductManagement.Core.DataAccess
         IQueryable<T> GetAll(params string[] nav);
         IQueryable<T> GetAll(Expression<Func<T, bool>> predicate = null, params string[] nav);
         void Add(T entity);
-        void Delete(T entity);
+        void Delete(T entity, int id);
         void Update(T entity, int id);
     }
 }

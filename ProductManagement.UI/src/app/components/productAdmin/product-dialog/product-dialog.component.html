@@ -1,0 +1,61 @@
+
+
+<div class="modal position-relative d-block" tabindex="-1" role="dialog" style="padding:0px;">
+  <div class="modal-dialog" role="document" style="margin: 0px;;">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title">  Ürün <strong>{{action}}</strong></h5>
+              <button type="button" class="close"  (click)="closeDialog()" aria-label="Close">
+                  <i aria-hidden="true" class="ki ki-close"></i>
+              </button>
+          </div>
+          <div class="modal-body">
+            <form  [formGroup]="productAddForm">
+              <div mat-dialog-content >
+                <ng-template class="example-container" [ngIf]="action === 'Güncelle' || action ==='Ekle'">
+                <mat-form-field style="display: block;">
+                  <input placeholder="Ürün Adı" type="text" matInput id="productName" class="form-control"  formControlName="productName" [(ngModel)]="local_data.productName"   required>
+                  <mat-error *ngIf="productAddForm.get('productName').hasError('required')">Ürün Adı Alanı Zorunludur</mat-error>
+                </mat-form-field>
+                <mat-form-field style="display: block;">
+                  <input placeholder="Barkod" type="text" matInput id="barcodeNumber" class="form-control"  formControlName="barcodeNumber" [(ngModel)]="local_data.barcodeNumber"   required>
+                  <mat-error *ngIf="productAddForm.get('barcodeNumber').hasError('required')">Barkod Alanı Zorunludur</mat-error>
+                </mat-form-field>
+                <mat-form-field style="display: block;">
+                  <input placeholder="Fiyat" type="number" matInput id="price" class="form-control"  formControlName="price" [(ngModel)]="local_data.price">
+                </mat-form-field>
+                <mat-form-field style="display: block;">
+                  <input placeholder="Açıklama" type="text" matInput id="description" class="form-control"  formControlName="description" [(ngModel)]="local_data.description">
+                </mat-form-field>
+                <mat-form-field style="display: block;">
+                  <input placeholder="Miktar" type="text" matInput id="quantity" class="form-control"  formControlName="quantity" [(ngModel)]="local_data.quantity">
+                </mat-form-field>
+              </ng-template>
+                <ng-template  [ngIf]="action === 'Sil'"> 
+                  <b>{{local_data.cityName}}</b> Ürününü Silmek İstediğinizden Emin Misiniz ??
+                </ng-template>
+              
+              </div>
+        
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button style="margin-right: 5px;" mat-button (click)="closeDialog()" mat-flat-button color="warn" class="btn btn-danger " data-dismiss="modal">Vazgeç</button>
+            <button class="btn btn-primary" color="primary" mat-raised-button  mat-button (click)="doAction()">{{action=="Resimleri"?"Kaydet":action}}</button>
+      </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+ 
+
+
+ 

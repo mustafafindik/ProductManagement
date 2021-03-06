@@ -38,7 +38,7 @@ namespace ProductManagement.Business.Concrete
 
         public IResult Delete(Product product)
         {
-            _productRepository.Delete(product);
+            _productRepository.Delete(product,product.Id);
             return new SuccessResult(Messages.ProductDeletedSuccessfully);
         }
 

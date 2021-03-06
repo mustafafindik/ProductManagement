@@ -64,6 +64,9 @@ constructor(private httpClient: HttpClient,
 
   getUserRoles(){
     if(this.getToken() != null){
+      if (!('http://schemas.microsoft.com/ws/2008/06/identity/claims/role' in this.jwtHelper.decodeToken(this.getToken()?.toString()))){
+        return "User";
+      }
       return this.jwtHelper.decodeToken(this.getToken()?.toString())["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
     }else {
       return "User";

@@ -61,9 +61,10 @@ namespace ProductManagement.Core.DataAccess.EntityFrameworkCore
 
         }
 
-        public void Delete(T entity)
+        public void Delete(T entity, int id)
         {
-            _context.Remove(entity);
+            var existingEntity = _context.Set<T>().Find(id);
+            _context.Remove(existingEntity);
             _context.SaveChanges();
 
         }

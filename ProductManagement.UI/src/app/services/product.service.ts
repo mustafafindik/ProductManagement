@@ -20,15 +20,15 @@ export class ProductService {
 
 
   add(product: Product): Observable<any> {
-    return this.httpClient.post(this.path + 'cities/add', product, { observe: 'response' });
+    return this.httpClient.post(this.path + 'products/add', product, { observe: 'response' });
   }
 
   update(product: Product): Observable<any> {
-    return this.httpClient.post(this.path + 'cities/update', product, { observe: 'response' });
+    return this.httpClient.post(this.path + 'products/update', product, { observe: 'response' });
   }
 
   delete(product: Product): Observable<any> {
-    return this.httpClient.post(this.path + 'cities/delete' , product, { observe: 'response' });
+    return this.httpClient.post(this.path + 'products/delete' , product, { observe: 'response' });
   }
 
   
