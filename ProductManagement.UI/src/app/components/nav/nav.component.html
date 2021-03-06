@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="row" style="margin: 0px 100px;">
-    <a class="navbar-brand" href="#">Ürün Listesi</a>
+ 
+    <a style="padding-left: 100px;" class="navbar-brand" href="#">Ürün Listesi</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,12 +10,26 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="products" routerLinkActive="active">Ürünler <span class="sr-only">(current)</span></a>
         </li>     
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isAuthenticated()">
           <a class="nav-link" routerLink="register" routerLinkActive="active">Kayıt ol</a>
         </li>
       </ul>
        
     </div>
-  </div>
+ 
 
+  <form *ngIf="isAuthenticated()" #loginForm="ngForm" (ngSubmit)="login()" class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" name="email" 
+    [(ngModel)]="loginUser.email" required type="text" placeholder="email">
+    <input class="form-control mr-sm-2" name="password" 
+    [(ngModel)]="loginUser.password" required type="password" placeholder="Password">
+    <button class="btn btn-secondary my-2 my-sm-0" [disabled]="!loginForm.valid"  type="submit">Giriş</button>
+  </form>
+  <div style="padding-right: 100px;">
+    <span *ngIf="!isAuthenticated()" style="color: white;padding-top: 5px;;"> Hoşgeldin , {{getUserName()}}. </span>
+    <button style="margin-right: 10px;"  class="btn btn-sm  btn-success my-2 my-sm-0" *ngIf="isAdmin()"   type="submit">Admin Sayfası</button>
+    <button  class="btn btn-sm  btn-success my-2 my-sm-0" *ngIf="!isAuthenticated()" (click)="logOut()"  type="submit">Çıkış</button>
+ 
+  </div>
+ 
 </nav>

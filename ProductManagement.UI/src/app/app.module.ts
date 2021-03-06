@@ -8,6 +8,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { ProductsComponent } from './components/products/products.component';
 import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [	
@@ -21,7 +22,10 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     AppRoutingModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,FormsModule,
+    ReactiveFormsModule,
+    
+
 
   ],
   providers: [],
