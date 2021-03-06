@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using ProductManagement.Core.DataAccess.EntityFrameworkCore;
+using ProductManagement.Core.Entities.Concrete;
 using ProductManagement.DataAccess.Abstract;
 using ProductManagement.DataAccess.Concrete.EntityFrameworkCore.Contexts;
 using ProductManagement.Entities.Concrete;

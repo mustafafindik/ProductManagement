@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using ProductManagement.Core.Entities.Concrete;
 using ProductManagement.DataAccess.Concrete.EntityFrameworkCore.Builders;
 using ProductManagement.Entities.Concrete;
 

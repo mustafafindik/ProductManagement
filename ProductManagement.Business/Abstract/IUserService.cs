@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ProductManagement.Core.Entities.Concrete;
 using ProductManagement.Entities.Concrete;
 
 namespace ProductManagement.Business.Abstract

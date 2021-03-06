@@ -6,6 +6,13 @@ namespace ProductManagement.Business.Constants
 {
     public static class Messages
     {
+        public const string UserRegisteredSuccessfully = "Kullanıcı Başarıyla Kayıt Oldu.";
+        public const string UserNotFound = "Kullanıcı Bulunamadı.";
+        public const string PasswordIncorrect = "Şifre Hatalı.";
+        public const string UserLoginSuccessfully = "Kullanıcı Başarıyla Giriş Yaptı.";
+        public const string UserAlreadyExist = "Kullanıcı Zaten Kayıtlı.";
+        public const string AccessTokenCreated = "Token Oluştu";
+
         public const string ProductGetSuccessfully = "Ürün Başarıyla Alındı.";
         public const string ProductsGetSuccessfully = "Ürünler Başarıyla Alındı.";
         public const string ProductAddedSuccessfully = "Ürün Başarıyla Eklendi";

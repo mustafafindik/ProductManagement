@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using ProductManagement.Core.DataAccess;
+using ProductManagement.Core.Entities.Concrete;
 using ProductManagement.Entities.Concrete;
 
 namespace ProductManagement.DataAccess.Abstract
