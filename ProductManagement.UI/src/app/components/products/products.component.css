@@ -1,0 +1,48 @@
+body {
+    background-color: #304FFE
+}
+
+.sale {
+    flex-direction: row-reverse
+}
+
+.card {
+    width: fit-content
+}
+
+.card-body {
+    width: fit-content
+}
+
+.btn {
+    border-radius: 0;
+    width: fit-content;
+    background-color: #69F0AE;
+    box-shadow: 0px 10px 10px #E0E0E0;
+    z-index: 1;
+    color: white;
+    width: 100px;
+    font-size: 14px;
+    font-weight: 900
+}
+
+.img-thumbnail {
+    border: none
+}
+
+.card {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    padding-bottom: 10px
+}
+
+.card-title {
+    font-size: 14px;
+    font-weight: 900
+}
+
+.card-text {
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: 500
+}

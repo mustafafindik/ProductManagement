@@ -19,7 +19,7 @@ namespace ProductManagement.DataAccess.Concrete.EntityFrameworkCore.Seeds
            
             var context = app.ApplicationServices.GetRequiredService<ApplicationDbContext>();
             int roleId = 1;
-             
+            context.Database.Migrate();
 
             if (!context.Roles.Any())
             {
