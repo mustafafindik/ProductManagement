@@ -27,7 +27,7 @@
   </form>
   <div style="padding-right: 100px;">
     <span *ngIf="!isAuthenticated()" style="color: white;padding-top: 5px;;"> Hoşgeldin , {{getUserName()}}. </span>
-    <button style="margin-right: 10px;"  class="btn btn-sm  btn-success my-2 my-sm-0" *ngIf="isAdmin()"   type="submit">Admin Sayfası</button>
+    <a style="margin-right: 10px;"  class="btn btn-sm  btn-success my-2 my-sm-0" *ngIf="isAdmin()" routerLink="admin">Admin Sayfası</a>
     <button  class="btn btn-sm  btn-success my-2 my-sm-0" *ngIf="!isAuthenticated()" (click)="logOut()"  type="submit">Çıkış</button>
  
   </div>

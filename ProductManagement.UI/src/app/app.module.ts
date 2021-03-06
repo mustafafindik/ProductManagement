@@ -9,12 +9,15 @@ import { ProductsComponent } from './components/products/products.component';
 import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductAdminComponent } from './components/productAdmin/productAdmin.component';
+import { AuthGuard } from './_guard/auth-guard';
 
 @NgModule({
   declarations: [	
     AppComponent,
     NavComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductAdminComponent
       
    ],
   imports: [
@@ -24,10 +27,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatGridListModule,
     MatCardModule,FormsModule,
     ReactiveFormsModule,
-    
+
 
 
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })
