@@ -25,11 +25,8 @@ namespace ProductManagement.Core.DataAccess.EntityFrameworkCore
 
         public T Get(Expression<Func<T, bool>> predicate, params string[] nav)
         {
-
-
-            var query = _context.Set<T>();
-            query = nav.Aggregate(query, (current, n) => (DbSet<T>)current.Include(n));
-            return query.AsNoTracking().SingleOrDefault(predicate);
+            var query = _context.Set<T>().AsQueryable();
+            return nav.Aggregate(query, (current, n) => current.Include(n)).SingleOrDefault(predicate);
 
         }
 
@@ -43,18 +40,15 @@ namespace ProductManagement.Core.DataAccess.EntityFrameworkCore
         public IQueryable<T> GetAll(params string[] nav)
         {
 
-            var query = _context.Set<T>();
-            query = nav.Aggregate(query, (current, n) => (DbSet<T>)current.Include(n));
-            return query.AsNoTracking();
-
+            var query = _context.Set<T>().AsQueryable();
+            return nav.Aggregate(query, (current, n) => current.Include(n));
         }
 
         public IQueryable<T> GetAll(Expression<Func<T, bool>> predicate = null, params string[] nav)
         {
 
             var query = predicate == null ? _context.Set<T>() : _context.Set<T>().Where(predicate);
-            query = nav.Aggregate(query, (current, n) => (DbSet<T>)current.Include(n));
-            return query.AsNoTracking();
+            return nav.Aggregate(query, (current, n) => current.Include(n)).AsNoTracking();
 
         }
 

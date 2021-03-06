@@ -6,6 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac;
+using ProductManagement.Business.DependencyResolvers.Autofac;
+using Autofac.Extensions.DependencyInjection;
 
 namespace ProductManagement.Api
 {
@@ -18,6 +21,7 @@ namespace ProductManagement.Api
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .UseServiceProviderFactory(new AutofacServiceProviderFactory(builder => builder.RegisterModule(new BusinessModule())))
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

@@ -26,7 +26,7 @@ namespace ProductManagement.Business.Concrete
 
         public IDataResult<Product> GetById(int productId)
         {
-            var query = _productRepository.Get(p => p.Id == productId);
+            var query = _productRepository.Get(p => p.Id == productId, "ProductImages");
             return new SuccessDataResult<Product>(query, Messages.ProductGetSuccessfully);
         }
 
