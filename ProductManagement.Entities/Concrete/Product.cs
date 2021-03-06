@@ -13,5 +13,8 @@ namespace ProductManagement.Entities.Concrete
         public decimal Price { get; set; }
         public string Description { get; set; }
         public string Quantity { get; set; }
+
+
+        public virtual ICollection<ProductImage> ProductImages { get; set; }
     }
 }

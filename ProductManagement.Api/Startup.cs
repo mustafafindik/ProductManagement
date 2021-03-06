@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using ProductManagement.DataAccess.Concrete.EntityFrameworkCore.Contexts;
 
 namespace ProductManagement.Api
 {
@@ -28,6 +30,11 @@ namespace ProductManagement.Api
         {
 
             services.AddControllers();
+            services.AddDbContext<ApplicationDbContext>(options =>
+
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("ProductManagement.DataAccess")).EnableSensitiveDataLogging(), ServiceLifetime.Scoped
+
+            );
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProductManagement.Api", Version = "v1" });
