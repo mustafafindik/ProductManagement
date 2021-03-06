@@ -7,6 +7,7 @@ import { NavComponent } from './components/nav/nav.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ProductsComponent } from './components/products/products.component';
 import {MatCardModule} from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [	
@@ -17,6 +18,7 @@ import {MatCardModule} from '@angular/material/card';
    ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     MatGridListModule,
     MatCardModule
