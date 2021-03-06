@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,private router: Router) { }
   loginUser: any = {};
 
   ngOnInit() {
@@ -20,6 +21,7 @@ export class NavComponent implements OnInit {
 
   logOut(){
     this.authService.logOut();
+    this.router.navigate(["/products"]);
   }
 
   isAuthenticated(){
