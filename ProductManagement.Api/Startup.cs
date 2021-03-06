@@ -17,6 +17,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using ProductManagement.Core.Utilities.Security.Jwt;
 using ProductManagement.DataAccess.Concrete.EntityFrameworkCore.Contexts;
+using ProductManagement.DataAccess.Concrete.EntityFrameworkCore.Seeds;
 
 namespace ProductManagement.Api
 {
@@ -100,6 +101,8 @@ namespace ProductManagement.Api
             {
                 endpoints.MapControllers();
             });
+
+            CreteUserAndRoleSeed.Seed(app);
         }
     }
 }

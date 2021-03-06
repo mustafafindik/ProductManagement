@@ -22,7 +22,6 @@ namespace ProductManagement.Api.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
         public IActionResult Get()
         {
 
@@ -50,6 +49,8 @@ namespace ProductManagement.Api.Controllers
         }
 
         [HttpPost("add")]
+        [Authorize(Roles = "Admin")]
+
         public IActionResult Add(Product product)
         {
 
@@ -63,6 +64,8 @@ namespace ProductManagement.Api.Controllers
         }
 
         [HttpPost("update")]
+        [Authorize(Roles = "Admin")]
+
         public IActionResult Update([FromBody] Product product)
         {
 
@@ -78,6 +81,8 @@ namespace ProductManagement.Api.Controllers
 
 
         [HttpPost("delete")]
+        [Authorize(Roles = "Admin")]
+
         public IActionResult Delete(Product product)
         {
             var result = _productService.Delete(product);
