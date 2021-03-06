@@ -25,6 +25,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ProductDialogComponent } from './components/productAdmin/product-dialog/product-dialog.component';
 import { AuthInterceptor } from './helper/AuthInterceptor';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ProductImageDialogComponent } from './components/productAdmin/productImage-dialog/productImage-dialog.component';
 
 @NgModule({
   declarations: [	
@@ -32,7 +33,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     NavComponent,
     ProductsComponent,
     ProductAdminComponent,
-    ProductDialogComponent
+    ProductDialogComponent,
+    ProductImageDialogComponent
       
    ],
   imports: [
@@ -57,7 +59,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatTooltipModule
   ],
   entryComponents: [
-    ProductDialogComponent
+    ProductDialogComponent,
+    ProductImageDialogComponent
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },],
   bootstrap: [AppComponent]

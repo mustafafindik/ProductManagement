@@ -15,11 +15,11 @@
                 <ng-template class="example-container" [ngIf]="action === 'Güncelle' || action ==='Ekle'">
                 <mat-form-field style="display: block;">
                   <input placeholder="Ürün Adı" type="text" matInput id="productName" class="form-control"  formControlName="productName" [(ngModel)]="local_data.productName"   required>
-                  <mat-error *ngIf="productAddForm.get('productName').hasError('required')">Ürün Adı Alanı Zorunludur</mat-error>
+                  <mat-error *ngIf="productAddForm.get('productName')!.hasError('required')">Ürün Adı Alanı Zorunludur</mat-error>
                 </mat-form-field>
                 <mat-form-field style="display: block;">
                   <input placeholder="Barkod" type="text" matInput id="barcodeNumber" class="form-control"  formControlName="barcodeNumber" [(ngModel)]="local_data.barcodeNumber"   required>
-                  <mat-error *ngIf="productAddForm.get('barcodeNumber').hasError('required')">Barkod Alanı Zorunludur</mat-error>
+                  <mat-error *ngIf="productAddForm.get('barcodeNumber')!.hasError('required')">Barkod Alanı Zorunludur</mat-error>
                 </mat-form-field>
                 <mat-form-field style="display: block;">
                   <input placeholder="Fiyat" type="number" matInput id="price" class="form-control"  formControlName="price" [(ngModel)]="local_data.price">

@@ -8,6 +8,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/services/product.service';
 import { ProductDialogComponent } from './product-dialog/product-dialog.component';
+import { ProductImageDialogComponent } from './productImage-dialog/productImage-dialog.component';
 
 @Component({
   selector: 'app-productAdmin',
@@ -68,13 +69,20 @@ export class ProductAdminComponent implements OnInit {
   }
 
   actions(action:any, obj:any) {
-    if (action === "Güncelle" || action === "Resimleri") {
+    if (action === "Güncelle") {
       this.productService.getProductById(obj.id).subscribe(data => {
         this.openDialog(action, data);
       });
     } else {
       this.openDialog(action, obj);
     }
+  }
+
+  openImageUpload(obj:any){
+    const dialogRef = this.dialog.open(ProductImageDialogComponent, {
+      data: obj
+    });
+
   }
 
 
