@@ -4,4 +4,10 @@
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProductManagement.Core\ProductManagement.Core.csproj" />
+    <ProjectReference Include="..\ProductManagement.DataAccess\ProductManagement.DataAccess.csproj" />
+    <ProjectReference Include="..\ProductManagement.Entities\ProductManagement.Entities.csproj" />
+  </ItemGroup>
+
 </Project>
