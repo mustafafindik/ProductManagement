@@ -8,6 +8,8 @@ using ProductManagement.Entities.Dtos;
 
 namespace ProductManagement.Api.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class AuthController : Controller
     {
         private readonly IAuthService _authService;

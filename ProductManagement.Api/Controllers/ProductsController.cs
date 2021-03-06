@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using ProductManagement.Business.Abstract;
 using ProductManagement.Entities.Concrete;
 
@@ -21,6 +22,7 @@ namespace ProductManagement.Api.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult Get()
         {
 
