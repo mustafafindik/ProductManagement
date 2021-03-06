@@ -4,6 +4,7 @@ using System.Text;
 using Autofac;
 using ProductManagement.Business.Abstract;
 using ProductManagement.Business.Concrete;
+using ProductManagement.Core.Utilities.Security.Jwt;
 using ProductManagement.DataAccess.Abstract;
 using ProductManagement.DataAccess.Concrete.EntityFrameworkCore;
 
@@ -19,6 +20,9 @@ namespace ProductManagement.Business.DependencyResolvers.Autofac
             builder.RegisterType<UserService>().As<IUserService>().SingleInstance();
             builder.RegisterType<UserRepository>().As<IUserRepository>().SingleInstance();
 
+            builder.RegisterType<AuthRepository>().As<IAuthRepository>();
+            builder.RegisterType<AuthService>().As<IAuthService>();
+            builder.RegisterType<JwtHelper>().As<ITokenHelper>();
         }
     }
 }
