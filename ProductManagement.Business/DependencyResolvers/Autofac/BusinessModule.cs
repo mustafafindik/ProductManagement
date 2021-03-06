@@ -15,6 +15,10 @@ namespace ProductManagement.Business.DependencyResolvers.Autofac
         {
             builder.RegisterType<ProductService>().As<IProductService>().SingleInstance();
             builder.RegisterType<ProductRepository>().As<IProductRepository>().SingleInstance();
+
+            builder.RegisterType<UserService>().As<IUserService>().SingleInstance();
+            builder.RegisterType<UserRepository>().As<IUserRepository>().SingleInstance();
+
         }
     }
 }
