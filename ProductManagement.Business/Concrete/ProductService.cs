@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using ProductManagement.Business.Abstract;
 using ProductManagement.Business.Constants;
 using ProductManagement.Core.Aspects.Autofac.Caching;
+using ProductManagement.Core.Aspects.Autofac.Security;
 using ProductManagement.Core.Utilities.Results;
 using ProductManagement.DataAccess.Abstract;
 using ProductManagement.Entities.Concrete;
@@ -40,6 +41,7 @@ namespace ProductManagement.Business.Concrete
         }
 
         [CacheRemoveAspect("IProductService.Get")]
+        [SecuredOperation("Admin", Priority = 1)]
         public IResult Add(Product product)
         {
             _productRepository.Add(product);
@@ -47,6 +49,7 @@ namespace ProductManagement.Business.Concrete
         }
 
         [CacheRemoveAspect("IProductService.Get")]
+        [SecuredOperation("Admin", Priority = 1)]
         public IResult Delete(Product product)
         {
             _productRepository.Delete(product, product.Id);
@@ -54,6 +57,7 @@ namespace ProductManagement.Business.Concrete
         }
 
         [CacheRemoveAspect("IProductService.Get")]
+        [SecuredOperation("Admin", Priority = 1)]
         public IResult Update(Product product)
         {
             _productRepository.Update(product, product.Id);
@@ -68,6 +72,7 @@ namespace ProductManagement.Business.Concrete
         }
 
         [CacheRemoveAspect("IProductService.Get")]
+        [SecuredOperation("Admin", Priority = 1)]
         public IResult UploadImage(int productId, IFormFile file, string folderName, string pathToSave)
         {
             

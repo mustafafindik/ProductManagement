@@ -5,6 +5,15 @@
     <div class="container-fliud">
       <div class="wrapper row">
         <div class="preview col-md-6">
+          <div class="preview-pic tab-content"  *ngIf="product.productImages.length==0">
+            <div #someNameInput class="tab-pane active"   id="pic-1">
+              <img src="{{path+'Resources/Images/productdefault.png'}}" style="height: 300px !important;object-fit: cover !important;" />
+            </div>
+            
+          </div>
+
+
+
           <div class="preview-pic tab-content" *ngFor="let image of product.productImages; let i = index" [attr.data-index]="i">
             <div #someNameInput class="tab-pane" [ngClass]="{'active': i === 0}"  id="pic-{{i+1}}">
               <img src="{{path+image.imagePath}}" style="height: 300px !important;object-fit: cover !important;" />
@@ -13,7 +22,7 @@
           </div>
           <ul class="preview-thumbnail nav nav-tabs">
             <li [ngClass]="{'active': i === 0}" *ngFor="let image of product.productImages;let i = index" [attr.data-index]="i">
-              <a [attr.data-target]="'#pic-' + (i+1)" data-toggle="tab" (click)="setActiveClass(i+1)">
+              <a [attr.data-target]="'#pic-' + (i+1)" data-toggle="tab">
               <img src="{{path+image.imagePath}}" style="height: 150px !important;object-fit: cover !important" />
             </a>
           </li>

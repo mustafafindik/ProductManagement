@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.Diagnostics;
-using System.Text;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +15,7 @@ namespace ProductManagement.Core.DependencyResolvers
         {
             services.AddMemoryCache();
             services.AddSingleton<ICacheService, MemoryCacheService>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<Stopwatch>();
 
         }
