@@ -97,7 +97,7 @@ namespace ProductManagement.Api
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ProductManagement.Api v1"));
             }
 
-
+            app.ConfigureCustomExceptionMiddleware();
             app.UseStaticFiles();
             app.UseStaticFiles(new StaticFileOptions()
             {
