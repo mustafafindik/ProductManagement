@@ -19,6 +19,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
+using ProductManagement.Core.DependencyResolvers;
+using ProductManagement.Core.Extensions;
+using ProductManagement.Core.Utilities.IoC;
 using ProductManagement.Core.Utilities.Security.Jwt;
 using ProductManagement.DataAccess.Concrete.EntityFrameworkCore.Contexts;
 using ProductManagement.DataAccess.Concrete.EntityFrameworkCore.Seeds;
@@ -53,6 +56,10 @@ namespace ProductManagement.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProductManagement.Api", Version = "v1" });
             });
 
+            services.AddDependencyResolvers(Configuration, new ICoreModule[]
+            {
+                new CoreModule(),
+            });
 
             //Cors AppsttingJson'dan al
             services.AddCors(options =>
