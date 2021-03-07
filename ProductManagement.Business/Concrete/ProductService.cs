@@ -75,7 +75,7 @@ namespace ProductManagement.Business.Concrete
         public IDataResult<List<ProductImage>> GetImagesById(int productId)
         {
             var query = _productRepository.GetImagesById(productId);
-            return new SuccessDataResult<List<ProductImage>>(query, "Resimler Başarıyla alındı");
+            return new SuccessDataResult<List<ProductImage>>(query, Messages.ProductImagesGetSuccessfully);
         }
 
         [CacheRemoveAspect("IProductService.Get")]
@@ -94,7 +94,7 @@ namespace ProductManagement.Business.Concrete
 
                 _productRepository.AddProductImage(dbPath, productId);
 
-                return new SuccessResult("Resim Eklendi.");
+                return new SuccessResult(Messages.ProductImageAddedSuccessfully);
 
         }
 
@@ -104,7 +104,7 @@ namespace ProductManagement.Business.Concrete
         public IResult DeleteImage(int id)
         {
             _productRepository.DeleteImage(id);
-            return new SuccessResult("Ürün Resmi Silindi.");
+            return new SuccessResult(Messages.ProductImageDeletedSuccessfully);
         }
     }
 }

@@ -18,5 +18,10 @@ namespace ProductManagement.Business.Constants
         public const string ProductAddedSuccessfully = "Ürün Başarıyla Eklendi";
         public const string ProductDeletedSuccessfully = "Ürün Başarıyla Silindi";
         public const string ProductUpdatedSuccessfully = "Ürün Başarıyla Güncellendi";
+
+        public const string ProductImagesGetSuccessfully = "Ürün Resimleri Başarıyla Alındı.";
+        public const string ProductImageAddedSuccessfully = "Ürün Resmi Başarıyla Eklendi.";
+        public const string ProductImageDeletedSuccessfully = "Ürün Resmi Başarıyla Silindi.";
+
     }
 }

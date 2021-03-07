@@ -4,6 +4,7 @@ using System.Text;
 using Castle.DynamicProxy;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using ProductManagement.Core.Constants;
 using ProductManagement.Core.Extensions;
 using ProductManagement.Core.Utilities.Interceptors;
 using ProductManagement.Core.Utilities.IoC;
@@ -35,7 +36,7 @@ namespace ProductManagement.Core.Aspects.Autofac.Security
                     return;
                 }
             }
-            throw new System.UnauthorizedAccessException("Messages.AuthorizationDenied");
+            throw new System.UnauthorizedAccessException(Messages.AuthorizationDenied);
         }
     }
 }

@@ -5,6 +5,7 @@ using Castle.DynamicProxy;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
+using ProductManagement.Core.Constants;
 using ProductManagement.Core.CrossCuttingConcerns.Logging;
 using ProductManagement.Core.CrossCuttingConcerns.Logging.Serilog;
 using ProductManagement.Core.Utilities.Interceptors;
@@ -20,7 +21,7 @@ namespace ProductManagement.Core.Aspects.Autofac.Logging
         {
             if (loggerService.BaseType != typeof(LoggerServiceBase))
             {
-                throw new ArgumentException("Messages.WrongLoggerType");
+                throw new ArgumentException(Messages.WrongLoggerType);
             }
 
             _loggerServiceBase = (LoggerServiceBase)Activator.CreateInstance(loggerService);
