@@ -1,4 +1,6 @@
- <div class="row" style="margin: 0px 100px;padding-bottom: 50px;">
+
+
+<div class="row" style="margin: 0px 100px;padding-bottom: 50px;">
   <div class="col-sm-4 col-md-3 sidebar mt-5">
     <div class="card">
       <article class="card-group-item">
@@ -10,7 +12,7 @@
           <div class="form-row">
           <div class="form-group " style="width: 100%;">
            
-            <input type="text" class="form-control" id="search" placeholder="Ara..">
+            <input type="text" [(ngModel)]="term" class="searchTerm"  class="form-control" id="search" placeholder="Ara..">
           </div>
           
           </div>
@@ -21,7 +23,7 @@
         <header class="card-header"><h6 class="title"> Kategoriler </h6></header>
         <div class="filter-content">
           <div class="list-group list-group-flush">
-            <a href="#" class="list-group-item">Tüm Kategoriler <span class="float-right badge badge-light round">142</span> </a>                  
+            <a href="#" class="list-group-item">Tüm Kategoriler <span class="float-right badge badge-light round">{{products.length}}</span> </a>                  
         </div>  <!-- list-group .// -->
         </div>
       </article> <!-- card-group-item.// -->
@@ -50,7 +52,7 @@
 
   <div class="col-sm-8 col-md-9">
    <div class="row">
-    <div class="col-3" *ngFor="let product of products">
+    <div class="col-3" *ngFor="let product of products|filter:term">
       <div class="card  mt-5 pt-4">
         <div class="d-flex sale ">
           <div class="btn">Son {{product.quantity}} Ürün</div>
@@ -59,7 +61,7 @@
           <h5 class="card-title">{{product.productName}}</h5>
           <p>{{product.description}}</p>
           <p class="card-text">{{product.price| currency:'₺ '}}</p>
-          <button routerLink="/products/{{product.id}}" class="btn btn-sm btn-success">Detaylar</button>
+          <button routerLink="/products/{{product.id!}}" class="btn btn-sm btn-success">Detaylar</button>
         </div>
       </div>
     </div>

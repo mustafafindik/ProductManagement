@@ -27,6 +27,7 @@ import { AuthInterceptor } from './helper/AuthInterceptor';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ProductImageDialogComponent } from './components/productAdmin/productImage-dialog/productImage-dialog.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [	
@@ -58,7 +59,8 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
     BrowserAnimationsModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    Ng2SearchPipeModule
   ],
   entryComponents: [
     ProductDialogComponent,

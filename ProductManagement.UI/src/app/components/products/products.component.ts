@@ -11,6 +11,9 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductsComponent implements OnInit {
   products!: Product[];
   path = Settings.ApiBaseUrl;
+  searchTerm!: string;
+  term!: string;
+
   constructor(private productService:ProductService) { }
 
   ngOnInit() {
