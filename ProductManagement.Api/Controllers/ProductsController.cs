@@ -42,14 +42,13 @@ namespace ProductManagement.Api.Controllers
         public IActionResult GetImages(int id)
         {
 
-            var images = new[] {
-            new ProductImage() {  Id = 1, ImagePath = "https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg"},
-            new ProductImage() {  Id = 2, ImagePath = "https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg"},
-        };
+            var result = _productService.GetImagesById(id);
+            if (result.IsSuccess)
+            {
+                return Ok(result.Data);
+            }
 
-
-
-            return Ok(images);
+            return BadRequest(new { Message = result.Message });
         }
 
 
@@ -70,10 +69,7 @@ namespace ProductManagement.Api.Controllers
         public class FileDto
         {
             public IFormFile File { get; set; }
-
-            public string FolderPath { get; set; }
-
-            public string FileName { get; set; }
+            public string productId { get; set; }
         }
 
         [HttpPost("UploadImages")]
@@ -81,31 +77,27 @@ namespace ProductManagement.Api.Controllers
 
         public IActionResult AddImages([FromForm] FileDto fileDto)
         {
-            try
+
+            var file = fileDto.File;
+            var productId = Convert.ToInt32(fileDto.productId);
+            var folderName = Path.Combine("Resources", "Images");
+            var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+
+
+            if (file.Length > 0)
             {
-                var files = Request.Form.Files;
-                var folderName = Path.Combine("StaticFiles", "Images");
-                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
-                if (files.Any(f => f.Length == 0))
+                var result = _productService.UploadImage(productId, file, folderName, pathToSave);
+
+                if (result.IsSuccess)
                 {
-                    return BadRequest();
+                    return Ok(new { Message = result.Message });
                 }
-                foreach (var file in files)
-                {
-                    var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim();
-                    var fullPath = Path.Combine(pathToSave.ToString(), fileName.ToString());
-                    var dbPath = Path.Combine(folderName, fileName.ToString());
-                    using (var stream = new FileStream(fullPath, FileMode.Create))
-                    {
-                        file.CopyTo(stream);
-                    }
-                }
-                return Ok(new { Message = "result.Message" });
+                return BadRequest(new { Message = result.Message });
             }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Internal server error");
-            }
+
+            return BadRequest("Dosya Yok");
+
+
         }
 
         [HttpPost("add")]

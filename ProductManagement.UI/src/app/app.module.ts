@@ -26,6 +26,7 @@ import { ProductDialogComponent } from './components/productAdmin/product-dialog
 import { AuthInterceptor } from './helper/AuthInterceptor';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ProductImageDialogComponent } from './components/productAdmin/productImage-dialog/productImage-dialog.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [	
@@ -34,7 +35,8 @@ import { ProductImageDialogComponent } from './components/productAdmin/productIm
     ProductsComponent,
     ProductAdminComponent,
     ProductDialogComponent,
-    ProductImageDialogComponent
+    ProductImageDialogComponent,
+    ProductDetailComponent
       
    ],
   imports: [

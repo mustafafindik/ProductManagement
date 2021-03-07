@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Settings } from 'src/app/helper/Settings';
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -9,6 +10,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductsComponent implements OnInit {
   products!: Product[];
+  path = Settings.ApiBaseUrl;
   constructor(private productService:ProductService) { }
 
   ngOnInit() {

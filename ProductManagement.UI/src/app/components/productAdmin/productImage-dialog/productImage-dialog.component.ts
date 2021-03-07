@@ -2,6 +2,7 @@ import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Component, EventEmitter, Inject, OnInit, Optional, Output } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
+import { Settings } from 'src/app/helper/Settings';
 import { Product } from 'src/app/model/product';
 import { UploadImagesService } from 'src/app/services/uploadImages.service';
 
@@ -17,6 +18,7 @@ export class ProductImageDialogComponent implements OnInit {
   fileInfos!: Observable<any>;
   id:number;
   local_data:any;
+  path = Settings.ApiBaseUrl;
 
   public progress!: number;
   @Output() public onUploadFinished = new EventEmitter();
@@ -58,13 +60,13 @@ export class ProductImageDialogComponent implements OnInit {
     this.message = '';
   
     for (let i = 0; i < this.selectedFiles.length; i++) {
-      this.upload(this.selectedFiles[i]);
+      this.upload(this.selectedFiles[i],this.id.toString());
     }
   }
 
 
  
-  upload(file:any) {
+  upload(file:any,id:string) {
     if (file.length === 0) {
       return;
   }
@@ -72,6 +74,7 @@ export class ProductImageDialogComponent implements OnInit {
   const fileToUpload = file[0] as File;
   const formData = new FormData();
   formData.append('file', file);
+  formData.append('productId', id);
 
   this.uploadService.uploadFile(formData)
       .subscribe(event => {
@@ -79,6 +82,7 @@ export class ProductImageDialogComponent implements OnInit {
               this.progress = Math.round(100 * event.loaded / event.total);
           } else if (event.type === HttpEventType.Response) {
               this.message = 'Upload success.';
+              this.fileInfos = this.uploadService.getFiles(this.id);
               this.onUploadFinished.emit({ Message: event.body.dbPath});
           }
       });

@@ -53,11 +53,13 @@
     <div class="col-3" *ngFor="let product of products">
       <div class="card  mt-5 pt-4">
         <div class="d-flex sale ">
-          <div class="btn">SALE</div>
-        </div> <img class='mx-auto img-thumbnail' src="https://i.imgur.com/WaZxrEe.jpg" width="auto" height="auto" />
+          <div class="btn">Son {{product.quantity}} Ürün</div>
+        </div> <img class='mx-auto img-thumbnail' src="{{path+product.productImages[0].imagePath}}" width="auto" height="auto" />
         <div class="card-body text-center mx-auto">
           <h5 class="card-title">{{product.productName}}</h5>
-          <p class="card-text">$1,399</p>
+          <p>{{product.description}}</p>
+          <p class="card-text">{{product.price| currency:'₺ '}}</p>
+          <button routerLink="/products/{{product.id}}" class="btn btn-sm btn-success">Detaylar</button>
         </div>
       </div>
     </div>
