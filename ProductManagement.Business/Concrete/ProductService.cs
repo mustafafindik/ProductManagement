@@ -48,6 +48,7 @@ namespace ProductManagement.Business.Concrete
         [LogAspect(typeof(MsSqlLogger))]
         public IResult Add(Product product)
         {
+            throw new  Exception();
             _productRepository.Add(product);
             return new SuccessResult(Messages.ProductAddedSuccessfully);
         }

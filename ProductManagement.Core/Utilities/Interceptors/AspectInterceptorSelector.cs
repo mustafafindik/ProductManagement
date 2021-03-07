@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Reflection;
 using Castle.DynamicProxy;
+using ProductManagement.Core.Aspects.Autofac.Exception;
+using ProductManagement.Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using IInterceptor = Castle.DynamicProxy.IInterceptor;
 
 namespace ProductManagement.Core.Utilities.Interceptors
@@ -17,8 +19,8 @@ namespace ProductManagement.Core.Utilities.Interceptors
             classAttributes.AddRange(methodAttributes);
 
             // Burada Çagrıldığı gibi (tüm Metodlarda, Bussiness metodları üstünde belirli Metodlardada bağrılabilir.
-            //classAttributes.Add(new ExceptionLogAspect(typeof(FileLogger)));
-            //classAttributes.Add(new ExceptionLogAspect(typeof(MsSqlLogger)));
+            classAttributes.Add(new ExceptionLogAspect(typeof(FileLogger)));
+            classAttributes.Add(new ExceptionLogAspect(typeof(MsSqlLogger)));
 
             //Çalışma sırası Priority e göre
             return classAttributes.OrderBy(x => x.Priority).ToArray();
