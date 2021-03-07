@@ -20,8 +20,4 @@
     <ProjectReference Include="..\ProductManagement.DataAccess\ProductManagement.DataAccess.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Resources\Images\" />
-  </ItemGroup>
-
 </Project>

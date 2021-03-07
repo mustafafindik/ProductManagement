@@ -7,7 +7,7 @@
         <div class="preview col-md-6">
           <div class="preview-pic tab-content" *ngFor="let image of product.productImages; let i = index" [attr.data-index]="i">
             <div #someNameInput class="tab-pane" [ngClass]="{'active': i === 0}"  id="pic-{{i+1}}">
-              <img src="{{path+image.imagePath}}" style="height: 400px !important;object-fit: cover !important;" />
+              <img src="{{path+image.imagePath}}" style="height: 300px !important;object-fit: cover !important;" />
             </div>
             
           </div>
@@ -35,7 +35,7 @@
           </div>
           <p class="product-description"> {{product.description}}</p>
           <h4 class="price"> <span>{{product.price| currency:'₺ '}}</span></h4>
-          <p class="vote"></p>
+          <p class="vote">Barkod : {{product.barcodeNumber}}</p>
         
           <div class="action">
             <button style="margin-right:10px;" (click)="NotUsedError()" class="add-to-cart btn btn-default" type="button">Sepete Ekle </button>
