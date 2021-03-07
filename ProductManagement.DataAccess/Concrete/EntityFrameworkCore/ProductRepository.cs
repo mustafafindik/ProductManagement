@@ -33,5 +33,12 @@ namespace ProductManagement.DataAccess.Concrete.EntityFrameworkCore
         {
             return _context.ProductImages.Where(q => q.ProductId == productId).ToList();
         }
+
+        public void DeleteImage(int id)
+        {
+            var existingEntity = _context.ProductImages.Find(id);
+            _context.Remove(existingEntity);
+            _context.SaveChanges();
+        }
     }
 }

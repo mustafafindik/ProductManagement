@@ -37,6 +37,14 @@
     >
       <li class="list-group-item">
         <img src="{{  path+ file.imagePath }}" alt="{{ file.id }}" height="80px">
+        <button
+        class="btn btn-sm btn-danger" style="float: right;"
+         
+        (click)="deleteImage(file.id)"
+      >
+        Sil
+      </button>
+      <hr>
       </li>
     </ul>
   </div>

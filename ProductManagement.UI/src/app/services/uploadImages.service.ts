@@ -36,4 +36,9 @@ export class UploadImagesService {
     formData, {reportProgress: true, observe: 'events'})
         ;
 }
+
+deleteImage(imageId: any): Observable<any> {
+  console.log("ss" + imageId);
+  return this.http.post(this.path + 'products/deleteImage/'+imageId , { observe: 'response' });
+}
 }

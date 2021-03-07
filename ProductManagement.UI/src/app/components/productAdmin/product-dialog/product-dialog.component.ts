@@ -44,11 +44,17 @@ export class ProductDialogComponent {
   }
 
   doAction(){
-    if(this.productAddForm.valid){
-    this.dialogRef.close({event:this.action,data:this.local_data});
+    if(this.action !="Sil"){
+      if(this.productAddForm.valid){
+        this.dialogRef.close({event:this.action,data:this.local_data});
+        }else{
+          console.log("Not Valid")
+        }
     }else{
-      console.log("Not Valid")
+      this.dialogRef.close({event:this.action,data:this.local_data});
+
     }
+   
   }
 
   closeDialog(){

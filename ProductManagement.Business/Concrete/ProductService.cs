@@ -95,11 +95,16 @@ namespace ProductManagement.Business.Concrete
                 _productRepository.AddProductImage(dbPath, productId);
 
                 return new SuccessResult("Resim Eklendi.");
-           
 
-           
+        }
 
-
+        [CacheRemoveAspect("IProductService.Get")]
+        [SecuredOperation("Admin", Priority = 1)]
+        [LogAspect(typeof(MsSqlLogger))]
+        public IResult DeleteImage(int id)
+        {
+            _productRepository.DeleteImage(id);
+            return new SuccessResult("Ürün Resmi Silindi.");
         }
     }
 }

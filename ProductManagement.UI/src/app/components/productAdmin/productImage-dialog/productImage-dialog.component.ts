@@ -88,4 +88,12 @@ export class ProductImageDialogComponent implements OnInit {
       });
   }
 
+  deleteImage(id:number){
+    console.log(id);
+    this.uploadService.deleteImage(id).subscribe(data => {
+      console.log(data);
+      this.fileInfos = this.uploadService.getFiles(this.id);
+    }, error => {    });
+  }
+
 }

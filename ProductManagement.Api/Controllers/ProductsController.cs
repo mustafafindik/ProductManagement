@@ -73,8 +73,6 @@ namespace ProductManagement.Api.Controllers
         }
 
         [HttpPost("UploadImages")]
-      
-
         public IActionResult AddImages([FromForm] FileDto fileDto)
         {
 
@@ -101,7 +99,7 @@ namespace ProductManagement.Api.Controllers
         }
 
         [HttpPost("add")]
-    
+
 
         public IActionResult Add(Product product)
         {
@@ -116,7 +114,7 @@ namespace ProductManagement.Api.Controllers
         }
 
         [HttpPost("update")]
-      
+
 
         public IActionResult Update([FromBody] Product product)
         {
@@ -133,7 +131,7 @@ namespace ProductManagement.Api.Controllers
 
 
         [HttpPost("delete")]
-       
+
         public IActionResult Delete(Product product)
         {
             var result = _productService.Delete(product);
@@ -142,6 +140,23 @@ namespace ProductManagement.Api.Controllers
                 return Ok(new { Message = result.Message });
             }
             return BadRequest(new { Message = result.Message });
+        }
+
+        [HttpPost("deleteImage/{id}")]
+        public IActionResult DeleteImage(int id)
+        {
+             
+            var result = _productService.DeleteImage(id);
+
+            if (result.IsSuccess)
+            {
+                return Ok(new { Message = result.Message });
+            }
+            return BadRequest(new { Message = result.Message });
+
+
+
+
         }
     }
 }

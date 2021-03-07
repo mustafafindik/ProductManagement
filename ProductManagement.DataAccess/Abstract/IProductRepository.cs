@@ -12,5 +12,6 @@ namespace ProductManagement.DataAccess.Abstract
     {
         void AddProductImage(string dbPath, int productId);
         List<ProductImage> GetImagesById(int productId);
+        void DeleteImage(int id);
     }
 }

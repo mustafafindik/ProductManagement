@@ -16,5 +16,6 @@ namespace ProductManagement.Business.Abstract
         IResult Update(Product product);
         IDataResult<List<ProductImage>> GetImagesById(int productId);
         IResult UploadImage(int productId,IFormFile file, string folderName,string pathToSave);
+        IResult DeleteImage(int id);
     }
 }
